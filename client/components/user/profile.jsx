@@ -1,12 +1,13 @@
 Profile = React.createClass({
-    mixins:[ReactMeteorData],
+    mixins: [ReactMeteorData],
     getMeteorData(){
         let data = {};
-        data.currentUser= Meteor.user();
-        data.departments = ["Development","Solutions","Support","Sales"];
+        data.currentUser = Meteor.user();
+        data.departments = ["Development", "Solutions", "Support", "Sales"];
         return data;
     },
     render(){
+        var mailto = "mailto:" + this.data.currentUser.emails[0].address;
         return (
             this.data.currentUser ? <div className="container">
                 <div className="row">
@@ -33,19 +34,11 @@ Profile = React.createClass({
                                         <table className="table table-user-information">
                                             <tbody>
                                             <tr>
-                                                <td>Department:</td>
-                                                <td>{this.data.currentUser.profile && this.data.currentUser.profile.department ? this.data.currentUser.profile.department:'None'}</td>
-                                            </tr>
-                                            <tr>
                                                 <td>Email</td>
-                                                <td><a href="mailto:info@support.com">{this.data.currentUser ? this.data.currentUser.emails[0].address:'None'}</a></td>
+                                                <td><a
+                                                    href={mailto}>{this.data.currentUser ? this.data.currentUser.emails[0].address:'None'}</a>
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td>Phone Number</td>
-                                                <td>123-4567-890(Landline)<br/><br/>555-4567-890(Mobile)</td>
-                                            </tr>
-
-
                                             </tbody>
                                         </table>
                                     </div>
@@ -55,7 +48,7 @@ Profile = React.createClass({
                         </div>
                     </div>
                 </div>
-            </div>:<h1>Loading</h1>
+            </div> : <h1>Loading</h1>
         )
     }
 });
