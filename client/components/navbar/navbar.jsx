@@ -19,7 +19,7 @@ Navbar = React.createClass({
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
-                            <a className="navbar-brand" href="/"><img height="25px" src="/images/logo.png" alt="logo"/></a>
+                            <a className="navbar-brand" href="/dashboard"><img height="25px" src="/images/logo.png" alt="logo"/></a>
                         </div>
                         <div id="navbar" className="navbar-collapse collapse">
                             <ul className="nav navbar-nav navbar-right">
