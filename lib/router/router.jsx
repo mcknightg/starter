@@ -35,3 +35,12 @@ privateRoutes.route('/dashboard', {
         });
     }
 });
+privateRoutes.route('/profile', {
+    name: 'Profile',
+    action: function () {
+        ReactLayout.render(Layout, {
+            content:<Profile/>,
+            header:<Navbar/>
+        });
+    }
+});
